@@ -76,7 +76,7 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="copyright">
           <span>© Copyright </span>
-          <a>PT Cipta Dinamika</a>
+          <a href="/" onClick={(e) => e.preventDefault()}>PT Cipta Dinamika</a>
           <span> All rights reserved. 2024</span>
         </div>
         <div className="legal-links">

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import SuccessModal from '../components/SuccessModal';
-import { sendApplicationToCS, sendConfirmationToUser } from '../assets/services/Emailservices';
 import '../styles/VisaService.css';
 import '../styles/ApplyModal.css';
 import { apiService } from '../services/api'; // sesuaikan path-nya

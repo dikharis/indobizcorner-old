@@ -5,37 +5,22 @@ import { apiService } from '../services/api';
 
 const Testimonial = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [backendStatus, setBackendStatus] = useState('checking...');
-// Contoh fetch data
-const [users, setUsers] = useState([]);
 
+// Contoh fetch data
 const fetchUsers = async () => {
   try {
     const response = await apiService.getUsers();
-    setUsers(response.data.users);
+    console.log('Users:', response.data.users);
   } catch (error) {
     console.error('Error:', error);
-  }
-};
-
-// Contoh create user
-const createUser = async (userData) => {
-  try {
-    const response = await apiService.createUser(userData);
-    console.log('User created:', response.data);
-    fetchUsers(); // Refresh list
-  } catch (error) {
-    console.error('Error creating user:', error);
   }
 };
   useEffect(() => {
     const testBackend = async () => {
       try {
         const response = await apiService.testConnection();
-        setBackendStatus(`✅ Connected - ${response.data.message}`);
         console.log('Backend connected:', response.data);
       } catch (error) {
-        setBackendStatus(`❌ Failed: ${error.message}`);
         console.error('Backend connection failed:', error);
       }
     };

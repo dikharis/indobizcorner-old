@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { apiService } from '../services/api'; // sesuaikan path jika berbeda
 
-import { Phone, MapPin, MessageCircle, Mail, Send, X, Minimize2, User, Clock } from 'lucide-react';
+import { Phone, MapPin, MessageCircle, Mail } from 'lucide-react';
 import '../styles/Contact.css'
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -170,6 +170,7 @@ Jakarta Selatan 12760
               <div className="contact-map-container">
               <iframe
   className="contact-map-image"
+  title="IndoBizCorner Location Map"
   src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d126914.14085573106!2d106.7432838524836!3d-6.2549166825052795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1750233911648!5m2!1sid!2sid"
   width="100%"
   height="300"

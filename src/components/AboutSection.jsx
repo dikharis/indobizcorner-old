@@ -111,14 +111,13 @@ const PromoSection = () => {
     });
     
     // Opsi 1: Redirect ke WhatsApp dengan pesan otomatis
-    const whatsappNumber = "6281234567890"; // Ganti dengan nomor WhatsApp bisnis Anda
-    const message = `Hi! I'm interested in claiming the ${currentPromo.title} offer (${currentPromo.discount}). This is claim #${claimCount + 1} of ${MAX_CLAIMS} available spots. Can you help me with the details?`;
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-    
     // Opsi 2: Buka modal untuk form kontak
     setShowModal(true);
     
     // Opsi untuk WhatsApp (uncomment jika ingin langsung ke WhatsApp)
+    // const whatsappNumber = "6281234567890"; // Ganti dengan nomor WhatsApp bisnis Anda
+    // const message = `Hi! I'm interested in claiming the ${currentPromo.title} offer (${currentPromo.discount}). This is claim #${claimCount + 1} of ${MAX_CLAIMS} available spots. Can you help me with the details?`;
+    // const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     // window.open(whatsappUrl, '_blank');
     
     // Update claim count
