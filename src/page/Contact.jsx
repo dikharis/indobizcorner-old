@@ -9,30 +9,6 @@ const ContactPage = () => {
     email: '',
     message: ''
   });
-  
-  const [chatOpen, setChatOpen] = useState(false);
-  const [chatMinimized, setChatMinimized] = useState(false);
-  const [isTyping, setIsTyping] = useState(false);
-  const [onlineStatus, setOnlineStatus] = useState(true);
-  const [chatMessages, setChatMessages] = useState([
-    { 
-      id: 1, 
-      text: "Hello! Welcome to our support chat. How can I help you today?", 
-      sender: "support", 
-      timestamp: new Date(),
-      avatar: "👨‍💼"
-    }
-  ]);
-  const [newMessage, setNewMessage] = useState('');
-  const messagesEndRef = useRef(null);
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [chatMessages]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -55,66 +31,6 @@ const ContactPage = () => {
     } else {
       alert('Please fill in all fields.');
     }
-  };
-  
-
-  const simulateTyping = () => {
-    setIsTyping(true);
-    setTimeout(() => {
-      setIsTyping(false);
-    }, 2000);
-  };
-
-  const getAutoResponse = (userMessage) => {
-    const responses = [
-      "Thank you for your message! Let me help you with that.",
-      "I understand your concern. Our team will assist you shortly.",
-      "That's a great question! Let me check that for you.",
-      "I appreciate you reaching out. How else can I help?",
-      "Thank you for contacting us. Is there anything specific you'd like to know?"
-    ];
-    return responses[Math.floor(Math.random() * responses.length)];
-  };
-
-  const handleChatSubmit = () => {
-    if (newMessage.trim()) {
-      const userMessage = {
-        id: chatMessages.length + 1,
-        text: newMessage,
-        sender: "user",
-        timestamp: new Date(),
-        avatar: "👤"
-      };
-      
-      setChatMessages(prev => [...prev, userMessage]);
-      setNewMessage('');
-      
-      // Simulate typing indicator
-      simulateTyping();
-      
-      // Simulate support response
-      setTimeout(() => {
-        const supportMessage = {
-          id: chatMessages.length + 2,
-          text: getAutoResponse(newMessage),
-          sender: "support",
-          timestamp: new Date(),
-          avatar: "👨‍💼"
-        };
-        setChatMessages(prev => [...prev, supportMessage]);
-      }, 2500);
-    }
-  };
-
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      handleChatSubmit();
-    }
-  };
-
-  const formatTime = (date) => {
-    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   };
 
   return (

@@ -6,15 +6,6 @@ import { apiService } from '../services/api';
 const Testimonial = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-// Contoh fetch data
-const fetchUsers = async () => {
-  try {
-    const response = await apiService.getUsers();
-    console.log('Users:', response.data.users);
-  } catch (error) {
-    console.error('Error:', error);
-  }
-};
   useEffect(() => {
     const testBackend = async () => {
       try {
